@@ -5,6 +5,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  //Metodo de la clase
+  void answerQuestion() {
+    print('Answer 1 chosen!');
+  }
+
   //Necesario para flutter
   @override
   Widget build(BuildContext context) {
@@ -22,15 +27,18 @@ class MyApp extends StatelessWidget {
             Text('The question!'),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: null,
+              onPressed: answerQuestion,
             ),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: null,
+              onPressed: () => print('Answer 2 chosen'),
             ),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: null,
+              onPressed: () {
+                //...
+                print('Answer 3 chosen');
+              },
             ),
           ],
         ),
