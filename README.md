@@ -10,5 +10,6 @@ Then in the Command Prompt (CMD):
 cd thepath/ofthefolder/of_the_first_app
 flutter run
 
+## App Working
 
 ![App Working](Demo/My_first_app.gif)
