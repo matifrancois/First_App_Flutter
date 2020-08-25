@@ -11,4 +11,4 @@ cd thepath/ofthefolder/of_the_first_app
 flutter run
 
 
-![App Working|20%](Demo/My_first_app.gif)
+![App Working|382x771,20%](Demo/My_first_app.gif)
