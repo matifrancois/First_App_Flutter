@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
-import 'answer.dart';
+import 'quiz.dart';
+import 'result.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,29 +15,57 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   var _questionIndex = 0;
-
-  var _questions = [
+  var _totalScore = 0;
+  final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White']
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1}
+      ]
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Cat', 'Dolphin', 'Parrot', 'Dog']
+      'answers': [
+        {'text': 'Snake', 'score': 10},
+        {'text': 'Dolphin', 'score': 3},
+        {'text': 'Parrot', 'score': 6},
+        {'text': 'Dog', 'score': 1}
+      ]
     },
     {
       'questionText': 'What\'s your favorite day?',
-      'answers': ['Monday', 'Friday', 'Saturday', 'Sunday']
+      'answers': [
+        {'text': 'Monday', 'score': 10},
+        {'text': 'Friday', 'score': 3},
+        {'text': 'Saturday', 'score': 4},
+        {'text': 'Sunday', 'score': 1}
+      ]
     },
   ];
+
   //Metodo de la clase
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     //setState esta ahi para que sea reactivo es decir que se actualice la
     //visualizacion de la app.
+    _totalScore += score;
+    if (_questionIndex < _questions.length - 1) {
+      print('chosen!');
+    } else {
+      print('We dont have more questions for you');
+    }
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    print('Blue chosen!');
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
   }
 
   //Necesario para flutter
@@ -48,25 +76,19 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My First App'),
         ),
-        body: Column(
-          children: [
-            Question(
-              _questions[_questionIndex]['questionText'],
-            ),
-            //"as list of strings" es necesario para indicarle a visual que sabes
-            //de lo que estas hablando y que no te tire error (el no sabe de que hablas)
-            //.map te permite recorrer todos los elementos de la lista y para c/u
-            //realizar una funcion determinada.
-            //los 3 puntitos lo que hacen es que toman una lista y sacan los valores
-            //de esa lista y crean una nueva lista, esto sirve para por ejemplo
-            //evitar problemas con tener lista de listas.
-            ...(_questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList()
-            //.toList() indica que lo queres convertir a lista.
-          ],
-        ),
+        //aqui hay una expresion ternaria que funciona como un if, un if ahi no lo
+        // podria meter pero de ultima un flag en un if aparte podria funcionar.
+        body: _questionIndex < _questions.length
+            ?
+            //caso verdadero:
+            Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            :
+            //caso falso:
+            Result(_totalScore, _resetQuiz),
       ),
     );
   }
