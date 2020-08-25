@@ -11,4 +11,4 @@ cd thepath/ofthefolder/of_the_first_app
 flutter run
 
 
-![App Working](Demo/My_first_app.gif)
+![App Working](Demo/My_first_app.gif){:height="50%" width="50%"}
