@@ -1,16 +1,11 @@
-# first_app
-
-A new Flutter project.
+# First_app
+This is my first flutter application, it is a really simple app that allows you to select some answers to three questions (but it is easily extendable to more questions) according to your answers the program tells you what kind of person you are, a normal person, a quite strange person or a very strange person.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run the code, switch to that example's directory, and use flutter run (you have to have installed flutter on your machine). Make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
 
-A few resources to get you started if this is your first Flutter project:
+Then in the Command Prompt (CMD):
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+cd thepath/ofthefolder/of_the_first_app
+flutter run
