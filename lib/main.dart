@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
+import 'answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,24 +40,9 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(_questions[_questionIndex]),
-            //Primer forma de conectar accion con boton
-            RaisedButton(
-              child: Text('Blue'),
-              onPressed: _answerQuestion,
-            ),
-            //Segunda forma de conectar accion con boton
-            RaisedButton(
-              child: Text('Red'),
-              onPressed: () => print('Red chosen'),
-            ),
-            //Tercer forma de conectar accion con boton
-            RaisedButton(
-              child: Text('Green'),
-              onPressed: () {
-                //...
-                print('Green chosen');
-              },
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
