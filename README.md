@@ -1,14 +1,29 @@
 # First_app
-This is my first flutter application, it is a really simple app that allows you to select some answers to three questions (but it is easily extendable to more questions) according to your answers the program tells you what kind of person you are, a normal person, a quite strange person or a very strange person.
+This is my first flutter application, it is a really simple app that allows you to answer three questions (but can easily be expanded to more). Based on your answers the program tells you what kind of person you are: a normal, strange, or very strange person.
+
 
 ## Getting Started
 
-To run the code, switch to that example's directory, and use flutter run (you have to have installed flutter on your machine). Make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
+Make sure you have an emulator or a USB-connected device with debugging mode enabled to run the application there. You also need to have Flutter installed.
 
-Then in the Command Prompt (CMD):
+#### 1. [Set up Flutter](https://flutter.io/setup/)
 
-cd thepath/ofthefolder/of_the_first_app
-flutter run
+#### 2. Clone the repo
+
+In the Command Prompt (CMD):
+
+```sh
+$ git clone https://github.com/matifrancois/First_App_Flutter
+$ cd First_App_Flutter
+```
+
+#### 4. Run the app
+
+```sh
+$ flutter run
+```
+
+## Preview
 
 
 ![App Working](Demo/My_first_app.gif)
